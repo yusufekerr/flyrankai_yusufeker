@@ -1,90 +1,108 @@
-# Proje Kuralları — Frontend AI Playground
+# Proje Kuralları – Frontend AI Playground
 
-Bu dosya, projede tutarlı kod kalitesi ve geliştirme pratikleri sağlamak için Cursor AI ve ekip üyelerine yönelik kuralları tanımlar.
+Bu dosya, proje boyunca Cursor'ın nasıl çalışacağını, kodlama standartlarını, commit kurallarını ve yapay zekâ destekli geliştirme yöntemlerini tanımlar.
 
-## Genel İlkeler
+---
 
-- Kod okunabilir, sade ve bakımı kolay olmalıdır.
-- Gereksiz soyutlama ve erken optimizasyondan kaçınılır.
-- Mevcut dosya yapısı ve kod stiline uyulur; yeni desenler yalnızca gerçekten gerekli olduğunda eklenir.
-- Commit mesajları [Conventional Commits](https://www.conventionalcommits.org/) formatında yazılır.
+## 1) Teknoloji Yığını
 
-## TypeScript
+- React + TypeScript
+- Vite geliştirme ortamı
+- Modern, bileşen tabanlı frontend mimarisi
+- Yapay zekâ destekli geliştirme (Cursor / Claude)
 
-- `any` kullanımından kaçınılır; gerekirse `unknown` tercih edilir.
-- Tip tanımları mümkün olduğunca açık ve dar kapsamlı tutulur.
-- Paylaşılan tipler `src/types/` altında toplanır.
-- Interface ve type alias seçiminde proje içindeki mevcut kullanım takip edilir.
+---
 
-## React
+## 2) Dosya Yapısı Kuralları
 
-- Yalnızca fonksiyonel bileşenler kullanılır.
-- Tekrar kullanılabilir mantık `src/hooks/` altında custom hook olarak ayrılır.
-- Bileşenler tek sorumluluk ilkesine uygun, küçük ve odaklı tutulur.
-- Prop tipleri bileşenle birlikte tanımlanır veya ayrı bir tip dosyasına taşınır.
-- Side effect'ler `useEffect` içinde açık bağımlılık dizileriyle yönetilir.
+- `src/components/` → Tekil UI bileşenleri
+- `src/pages/` → Sayfa yapıları
+- `src/utils/` → Yardımcı fonksiyonlar
+- `public/` → Statik dosyalar
+- Her bileşen kendi klasöründe olmalı (component-name/index.tsx + component-name.css)
 
-## Dosya ve Klasör Yapısı
+---
 
-```
-src/
-├── assets/       # Statik dosyalar (svg, img)
-├── components/   # Yeniden kullanılabilir UI bileşenleri
-├── hooks/        # Custom React hook'ları
-├── pages/        # Sayfa düzeyinde bileşenler
-├── types/        # Paylaşılan TypeScript tipleri
-├── utils/        # Saf yardımcı fonksiyonlar
-├── App.tsx
-├── main.tsx
-└── index.css
-```
+## 3) Kodlama Standartları
 
-- Bileşen dosyaları PascalCase (`Button.tsx`, `UserCard.tsx`) ile adlandırılır.
-- Hook dosyaları `use` önekiyle camelCase (`useAuth.ts`) adlandırılır.
-- Yardımcı fonksiyonlar camelCase (`formatDate.ts`) adlandırılır.
+- TypeScript zorunlu
+- Fonksiyon ve bileşen isimleri İngilizce olmalı
+- Dosya isimleri kebab-case
+- Bileşen isimleri PascalCase
+- Gereksiz yorum satırı kullanılmamalı
+- UI sade, responsive ve minimal olmalı
 
-## Stil ve CSS
+---
 
-- Global stiller `src/index.css` içinde tutulur.
-- Bileşene özel stiller mümkünse bileşen dosyasıyla birlikte konumlandırılır.
-- Sınıf adları anlamlı ve tutarlı olmalıdır.
+## 4) Commit Kuralları (Conventional Commits)
 
-## API ve Veri Yönetimi
-
-- API çağrıları `src/services/` veya `src/api/` altında toplanır.
-- Fetch/HTTP hataları kullanıcıya anlamlı mesajlarla iletilir.
-- Yükleme ve hata durumları UI'da açıkça gösterilir.
-
-## Lint ve Kalite
-
-- Commit öncesi `npm run lint` çalıştırılması önerilir.
-- Oxlint uyarıları gerekçesiz biçimde susturulmaz (`eslint-disable` benzeri yorumlar).
-- Ölü kod, kullanılmayan import ve gereksiz console.log bırakılmaz.
-
-## Commit Mesajları
-
-Format: `<type>(<scope>): <açıklama>`
-
-| Type       | Kullanım                          |
-| ---------- | --------------------------------- |
-| `feat`     | Yeni özellik                      |
-| `fix`      | Hata düzeltmesi                   |
-| `docs`     | Dokümantasyon                     |
-| `style`    | Biçimlendirme (mantık değişmez)   |
-| `refactor` | Davranış değiştirmeyen yeniden yapılandırma |
-| `test`     | Test ekleme veya güncelleme       |
-| `chore`    | Araç, bağımlılık, yapılandırma    |
-
-Örnekler:
+Commit mesajları şu formatta olmalıdır:
 
 ```
-feat(auth): add login form validation
-fix(api): handle 404 response in user fetch
-docs: update README with deployment steps
+<type>: <açıklama>
 ```
 
-## AI Asistan Kullanımı
+### Kullanılabilir type'lar:
 
-- Yapılan değişiklikler minimal kapsamda tutulur; istenmeyen dosyalar değiştirilmez.
-- Yeni bağımlılık eklenmeden önce mevcut çözümler değerlendirilir.
-- Test, dokümantasyon veya refactor yalnızca istendiğinde veya anlamlı katkı sağladığında eklenir.
+- **feat:** yeni özellik
+- **fix:** hata düzeltme
+- **docs:** dokümantasyon değişiklikleri
+- **chore:** yapılandırma, bağımlılık, ayar
+- **refactor:** davranışı değiştirmeyen kod iyileştirmesi
+- **style:** format, boşluk, noktalama
+- **test:** test ekleme/düzeltme
+
+### Örnekler:
+
+```
+feat: add AI prompt input component
+docs: update README with setup instructions
+chore: configure eslint and prettier
+```
+
+---
+
+## 5) Yapay Zekâ Kullanım Kuralları
+
+Cursor'dan şu konularda yardım istenir:
+
+- Kod oluşturma
+- Kod iyileştirme
+- Dosya yapısı düzenleme
+- Dokümantasyon yazma
+- Refactor önerileri
+- Hata analizi
+
+Cursor'dan **şu konularda yardım istenmez**:
+
+- Proje amacı dışında dosya oluşturma
+- Gereksiz karmaşık mimari önerileri
+- Drag-and-drop tarzı otomatik UI üretimi
+
+---
+
+## 6) Prompt Yazım Kuralları
+
+Cursor'a verilen komutlar:
+
+- Net
+- Adım adım
+- Gereksiz açıklama içermeyen
+- Teknik olarak yönlendirilmiş olmalıdır
+
+### Örnek:
+
+```
+Bu bileşeni TypeScript ile oluştur. Props olarak promptText alacak. Submit edildiğinde handlePrompt fonksiyonunu çalıştıracak.
+```
+
+---
+
+## 7) Hedef
+
+Bu proje, yapay zekâ destekli frontend geliştirme becerilerini göstermek için oluşturulmuştur. Amaç:
+
+- Temiz kod
+- Düzenli commit geçmişi
+- AI ile iş birliği kanıtı
+- Profesyonel proje yapısı
