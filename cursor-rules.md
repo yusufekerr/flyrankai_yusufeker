@@ -1,4 +1,115 @@
-# Proje Kuralları – Frontend AI Playground
+# Project Rules – Frontend AI Playground
+
+This document defines how Cursor should work throughout the project, including coding standards, commit conventions, and AI-assisted development practices.
+
+---
+
+## 1) Tech Stack
+
+- React + TypeScript
+- Vite development environment
+- Modern, component-based frontend architecture
+- AI-assisted development (Cursor / Claude)
+
+---
+
+## 2) File Structure Rules
+
+- `src/components/` → Individual UI components
+- `src/pages/` → Page layouts
+- `src/utils/` → Helper functions
+- `public/` → Static assets
+- Each component must live in its own folder (`component-name/index.tsx` + `component-name.css`)
+
+---
+
+## 3) Coding Standards
+
+- TypeScript is required
+- Function and component names must be in English
+- File names use kebab-case
+- Component names use PascalCase
+- Avoid unnecessary comments
+- UI should be clean, responsive, and minimal
+
+---
+
+## 4) Commit Rules (Conventional Commits)
+
+Commit messages must follow this format:
+
+```
+<type>: <description>
+```
+
+### Available types:
+
+- **feat:** new feature
+- **fix:** bug fix
+- **docs:** documentation changes
+- **chore:** configuration, dependencies, setup
+- **refactor:** code improvement without behavior change
+- **style:** formatting, spacing, punctuation
+- **test:** add or update tests
+
+### Examples:
+
+```
+feat: add AI prompt input component
+docs: update README with setup instructions
+chore: configure eslint and prettier
+```
+
+---
+
+## 5) AI Usage Rules
+
+Ask Cursor for help with:
+
+- Code generation
+- Code improvement
+- File structure organization
+- Documentation
+- Refactor suggestions
+- Error analysis
+
+Do **not** ask Cursor for:
+
+- Creating files outside the project scope
+- Unnecessarily complex architecture suggestions
+- Drag-and-drop style automatic UI generation
+
+---
+
+## 6) Prompt Writing Rules
+
+Commands given to Cursor should be:
+
+- Clear
+- Step-by-step
+- Free of unnecessary explanation
+- Technically directed
+
+### Example:
+
+```
+Create this component in TypeScript. It should accept promptText as a prop. On submit, it should call the handlePrompt function.
+```
+
+---
+
+## 7) Goal
+
+This project was created to demonstrate AI-assisted frontend development skills. The aim is:
+
+- Clean code
+- A well-organized commit history
+- Evidence of collaboration with AI
+- A professional project structure
+
+---
+
+# Proje Kuralları – Frontend AI Playground (Türkçe)
 
 Bu dosya, proje boyunca Cursor'ın nasıl çalışacağını, kodlama standartlarını, commit kurallarını ve yapay zekâ destekli geliştirme yöntemlerini tanımlar.
 
